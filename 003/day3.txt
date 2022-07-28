@@ -1,0 +1,9 @@
+Colors:
+
+- Bright Yellow #ffef00
+- Sky #7ddffc
+- Sand #f0de75
+- Sand Shadow #c0b25e
+- Pyramid Light #f1f1f1
+- Pyramid Shade #dfdcdc
+- Background #272c34
