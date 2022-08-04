@@ -1,0 +1,75 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+  overflow: hidden;
+  background: rgb(111, 38, 38);
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	filter: contrast(24);
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.ball {
+	width: 96px;
+	height: 96px;
+	background: #fff;
+	border-radius: 50%;
+	filter: blur(6px);
+	position: relative;
+}
+
+@for $i from 1 through 8 {
+	.blubb-#{$i} {
+		position: absolute;
+		width: (random(72) + $i) + px;
+		height: (random(72) + $i) + px;
+		background: #fff;
+		filter: blur(7px);
+		transform-origin: 32px 32px;
+		animation: rotate (2s + random(1)) linear infinite;
+	}
+}
+
+@for $i from 1 through 10 {
+	.sparkle-#{$i} {
+		position: absolute;
+		top: (random(200) - 100) + px;
+		left: (random(200) - 100) + px;
+		width: 16px + $i;
+		height: 16px + $i;
+		background: #fff;
+		border-radius: 50%;
+		filter: blur(1px);
+		transform-origin: 64px 64px;
+		animation: rotate (4s + random(2)) linear infinite;
+	}
+}
+
+@keyframes rotate {
+	0% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

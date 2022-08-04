@@ -1,0 +1,418 @@
+@use "sass:math";
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 5px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.25);
+	overflow: hidden;
+	background-color: #000000;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+}
+
+.weather {
+	width: 100%;
+	height: 310px;
+	background-color: #16233a;
+	position: relative;
+
+	.rain {
+		top: 400px;
+		position: absolute;
+		z-index: 10;
+	
+		$drop-color: #9ab8f2;
+		$drop-color1: #57698e;
+
+	@for $i from 1 through 10 {
+		.drop-l-#{$i} {
+			position: absolute;
+			z-index: 20;
+			left: (-20 + 38 * $i) + px;
+			bottom: 90px;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background: $drop-color;
+			// animation: drop (0.7 + math.div(random(2),10)) + s linear(math.div(random(50),25)) + s infinite;
+			// animation: drop (0.7 + calc(random(2)/10)) + s linear(calc(random(50)/25)) + s infinite;
+			animation: drop (0.7 + random(2) / 10) + s linear (random(50) / 25) + s infinite;
+			animation-fill-mode: both;
+			transform-origin: 50% 100%;
+
+			&:before {
+				position: absolute;
+				content: '';
+				display: block;
+				top: -2px;
+				left: 1px;
+				width: 6px;
+				height: 6px;
+				background: $drop-color;
+				border-radius: 3px;
+			}
+
+			&:after {
+				position: absolute;
+				content: '';
+				display: block;
+				top: -5px;
+				left: 2px;
+				width: 4px;
+				height: 10px;
+				background: $drop-color;
+				border-radius: 50%;
+			}
+
+		}
+		
+		.drop-m-#{$i} {
+			position: absolute;
+			z-index: 20;
+			left: (-20 + 38 * $i) + px;
+			bottom: 90px;
+			width: 3px;
+			height: 3px;
+			border-radius: 50%;
+			background: $drop-color1;
+			// animation: drop (0.7 + math.div(random(2),10)) + s linear(math.div(random(50),25)) + s infinite;
+			// animation: drop (0.7 + calc(random(2)/10)) + s linear(calc(random(50)/25)) + s infinite;
+			animation: drop (0.7 + random(4) / 10) + s linear (random(52) / 25) + s infinite;
+			animation-fill-mode: both;
+			transform-origin: 50% 100%;
+
+			&:before {
+				position: absolute;
+				content: '';
+				display: block;
+				top: -2px;
+				left: 1px;
+				width: 4px;
+				height: 4px;
+				background: $drop-color1;
+				border-radius: 3px;
+			}
+
+			&:after {
+				position: absolute;
+				content: '';
+				display: block;
+				top: -5px;
+				left: 2px;
+				width: 2px;
+				height: 8px;
+				background: $drop-color1;
+				border-radius: 50%;
+			}
+
+		}
+
+		.drop-s-#{$i} {
+			position: absolute;
+			z-index: 20;
+			left: (-20 + 38 * $i) + px;
+			bottom: 90px;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			background: $drop-color1;
+			// animation: drop (0.7 + math.div(random(2),10)) + s linear(math.div(random(50),25)) + s infinite;
+			// animation: drop (0.7 + calc(random(2)/10)) + s linear(calc(random(50)/25)) + s infinite;
+			animation: drop (0.7 + random(6) / 10) + s linear (random(54) / 25) + s infinite;
+			animation-fill-mode: both;
+			transform-origin: 50% 100%;
+
+			&:before {
+				position: absolute;
+				content: '';
+				display: block;
+				top: -2px;
+				left: 1px;
+				width: 4px;
+				height: 4px;
+				background: $drop-color1;
+				border-radius: 3px;
+			}
+
+			&:after {
+				position: absolute;
+				content: '';
+				display: block;
+				top: -5px;
+				left: 2px;
+				width: 2px;
+				height: 8px;
+				background: $drop-color1;
+				border-radius: 50%;
+			}
+
+		}
+	}
+	
+	}
+
+	.moon {
+		width: 75px;
+		height: 75px;
+		background-color: #fff2be;
+		border-radius: 50%;
+		position:relative;
+		overflow: hidden;
+
+		top: 50px;
+		left: 50px;
+
+		box-shadow: 0px 0px 20px 0 #fff8dd;
+
+		$crater: #eadba2;
+
+		.crater-1 {
+			width: 12px;
+			height: 12px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 10px;
+			left: 30px;
+		}
+		.crater-2 {
+			width: 12px;
+			height: 12px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 15px;
+			left: 0px;
+		}
+		.crater-3 {
+			width: 8px;
+			height: 8px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 20px;
+			left: 50px;
+		}
+		.crater-4 {
+			width: 5px;
+			height: 5px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 30px;
+			left: 16px;
+		}
+		.crater-5 {
+			width: 7px;
+			height: 7px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 32px;
+			left: 27px;
+		}
+		.crater-6 {
+			width: 6px;
+			height: 6px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 35px;
+			left: 65px;
+		}
+		.crater-7 {
+			width: 6px;
+			height: 6px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 45px;
+			left: 45px;
+		}
+		.crater-8 {
+			width: 10px;
+			height: 10px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 50px;
+			left: 17px;
+		}
+		.crater-9 {
+			width: 7px;
+			height: 7px;
+			background-color: $crater;
+			border-radius: 50%;
+
+			position: absolute;
+			top: 60px;
+			left: 50px;
+		}
+	}
+
+	.mountain {
+		.mountain-fg {
+			position: absolute;
+			top: 220px;
+			z-index: 3;
+
+			.mountain-fg-1 {
+				position: absolute;
+				width: 300px;
+				height: 300px;
+				background-color: #293d61;
+				border-radius: 50% 50% 0 0;
+				left: 75px;
+			}
+			.mountain-fg-2 {
+				position: absolute;
+				width: 300px;
+				height: 200px;
+				background-color: #293d61;
+				border-radius: 50% 50% 0 0;
+				left: -125px;
+				top: 25px;
+			}
+			.mountain-fg-3 {
+				position: absolute;
+				width: 250px;
+				height: 200px;
+				background-color: #293d61;
+				border-radius: 50% 50% 0 0;
+				left: 300px;
+				top: 25px;
+			}
+		}
+
+		.mountain-bg {
+			position: absolute;
+			top: 200px;
+
+			.mountain-bg-1 {
+				position: absolute;
+				width: 350px;
+				height: 300px;
+				background-color: #1f2e4a;
+				border-radius: 50% 50% 0 0;
+				left: -70px;
+			}
+			.mountain-bg-2 {
+				position: absolute;
+				width: 350px;
+				height: 300px;
+				background-color: #1f2e4a;
+				border-radius: 50% 50% 0 0;
+				
+				top: -10px;
+				left: 175px;
+			}
+		}
+
+	}
+}
+
+.info {
+	width: 100%;
+	height: 90px;
+	background-color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #16233a; 
+
+	position: absolute;
+	top: 310px;
+	z-index: 100;
+
+	.today {
+		display: flex;
+		margin-left: 20px;
+		align-items: center;
+	
+		.temp {
+			display: flex;
+			margin-right: 15px;
+		
+			.value {
+				font-size: 48px;
+				letter-spacing: -2px;
+			}
+			
+			.degrees {
+				border: 2px solid #16233a;
+				border-radius: 50%;
+				height:10px;
+				width:10px;
+				margin-left: 5px;
+				margin-top: 15px;
+			}
+		}
+	
+		.wind-hum {
+			font-size: 14px;
+		}
+	}
+
+	.forecast {
+		display: flex;
+		margin-right: 25px;
+		line-height: 20px;
+
+		.days {
+			text-align: center;
+			font-size: 14px;
+			margin-right: 10px;
+		}
+
+		.data {
+			text-align: right;
+			font-size: 14px;
+			font-weight: 500;
+		}
+	}
+}
+
+@keyframes drop {
+	0% {
+		transform: translate3d(40px,-320px,0) scaleX(1) scaleY(1) rotate(17deg);
+	}
+	85% {
+		transform: translate3d(0,0,0) scaleX(1) scaleY(1) rotate(17deg);
+	}
+	100% {
+		transform: translate3d(0,0,0) scaleX(3) scaleY(0) rotate(0deg);
+	}
+}
+
+// @keyframes rise {
+// 	from {
+// 		transform: translate(-20px,200px);
+// 	}
+// 	to {
+// 		transform: translate(0,0px);
+// 	}
+// }
+
+
+
+
+
